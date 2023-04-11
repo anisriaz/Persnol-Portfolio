@@ -4,7 +4,7 @@ const allMyProjects = [
         title: "POS Function App",
         description: "POS (Point of Sale) function is a software feature that enables businesses to process transactions, manage inventory, and track sales data at the point of purchase.",
         githubLink: "https://github.com/anisriaz/POS-Function",
-        demoLink: "https://storied-donut-340c85.netlify.app,
+        demoLink: "https://storied-donut-340c85.netlify.app",
     },
     {
         image: "./Images/Projects/project-2.jpg",
