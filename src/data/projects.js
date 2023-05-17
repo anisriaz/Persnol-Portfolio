@@ -25,7 +25,7 @@ const allMyProjects = [
         title: "This is my personal portfolio.",
         description: "I have created a portfolio website to showcase my skills and work experience.",
         githubLink: "https://github.com/anisriaz/Portfolio",
-        demoLink: "https://reliable-seahorse-e5b877.netlify.app",
+        demoLink: "https://anis-coder.netlify.app",
     },
 
 ]
