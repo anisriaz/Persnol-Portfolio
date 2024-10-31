@@ -19,7 +19,8 @@ const myInformation = {
             "I am a Full-Stack developer based in Azad Kashmir, Pakistan, and I am very passionate about improving my coding skills and developing applications and websites using the MERN Stack. I work for myself to enhance my skills, and I love building Full-Stack clones.",
     },
     contactSection: {
-        formpreeWebsiteAPIKey: "https://formspree.io/f/xjvzwwzl",
+        web3FormsEndpoint: "https://api.web3forms.com/submit",
+        web3FormsAccessKey: "b5d25ff6-33a1-4193-b520-b94354014d62"
     },
 };
 
