@@ -39,6 +39,8 @@ const Contact = ({ paddingTopToDiffer = "pt-10", heightToDiffer = "h-auto" }) =>
                 <div className="box-border flex h-full w-full flex-col items-center gap-6 rounded-lg px-6 transition-all duration-300 md:w-1/2 md:gap-7 md:px-10">
                     <form
                         className="box-border flex h-full w-full flex-col items-center gap-6 "
+                        action="https://example.com/submit"
+                        method="POST"
                     >
                         <motion.input
                             {...textAnimationCustom(0.1)}
