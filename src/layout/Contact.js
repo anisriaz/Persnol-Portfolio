@@ -19,10 +19,6 @@ const Contact = ({ paddingTopToDiffer = "pt-10", heightToDiffer = "h-auto" }) =>
     const scrollToTop = useRef();
 
 
-    // state for success message and button disabled state
-    const [successMessage, setSuccessMessage] = useState("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
     // ✅ useEffect ------------------------------------------------------------------------------------------------------------
     useEffect(() => {
         if (pathname === "/contact") scrollToTop.current.scrollIntoView({ behavior: "smooth" });
@@ -30,38 +26,6 @@ const Contact = ({ paddingTopToDiffer = "pt-10", heightToDiffer = "h-auto" }) =>
         document.title = `${myInformation.aboutSection.iAmWhat} | Contact`;
     }, []);
 
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-    
-        // Accessing Web3Forms access key and endpoint from myInformation
-        formData.append("access_key", myInformation.contactSection.web3FormsAccessKey);
-
-    
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-    
-        const res = await fetch(myInformation.contactSection.web3FormsEndpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: json
-        }).then((res) => res.json());
-    
-        if (res.success) {
-          console.log("Success", res);
-          setSuccessMessage("Your message has been sent successfully!");
-          event.target.reset(); 
-
-
-          setTimeout(() => {
-            setSuccessMessage("");
-        }, 2000);
-        }
-    };
-    
     return (
         <div
             ref={scrollToTop}
@@ -76,9 +40,8 @@ const Contact = ({ paddingTopToDiffer = "pt-10", heightToDiffer = "h-auto" }) =>
 
                 <div className="box-border flex h-full w-full flex-col items-center gap-6 rounded-lg px-6 transition-all duration-300 md:w-1/2 md:gap-7 md:px-10">
                     <form 
-                        onSubmit={onSubmit}
                         className="box-border flex h-full w-full flex-col items-center gap-6 "
-                        action="not avail"
+                        action="https://formspree.io/f/xdkoeenv"
                         method="POST"
                     >
                         <motion.input
@@ -111,7 +74,6 @@ const Contact = ({ paddingTopToDiffer = "pt-10", heightToDiffer = "h-auto" }) =>
                         <div className="mt-2 flex w-full justify-end">
                             <motion.button
                                type="submit"
-                               disabled={isSubmitting} 
                                 {...buttonAnimationCustom(0.36)}
                                 className="animate_button_main rounded-md bg-secondary-color px-9 py-2 font-rubik-font font-semibold text-white shadow-xl transition-all duration-300 hover:-translate-y-[2px] hover:border hover:border-secondary-color hover:opacity-90 md:py-2"
                             >
@@ -119,10 +81,6 @@ const Contact = ({ paddingTopToDiffer = "pt-10", heightToDiffer = "h-auto" }) =>
                             </motion.button>
                         </div>
                     </form>
-                    
-                    {successMessage && ( 
-                        <div className="mt-6 text-white">{successMessage}</div>
-                    )}
                 </div>
             </div>
         </div>
